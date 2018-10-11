@@ -1,0 +1,26 @@
+{
+  "name": "parks-of-athens",
+  "version": "1.0.0",
+  "description": "Yelp for the many parks of Athens",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KRMeserve/parks-of-athens.git"
+  },
+  "author": "K. Meserve",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KRMeserve/parks-of-athens/issues"
+  },
+  "homepage": "https://github.com/KRMeserve/parks-of-athens#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.3.2"
+  }
+}
