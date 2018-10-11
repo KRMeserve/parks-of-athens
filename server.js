@@ -33,7 +33,7 @@ app.use(methodOverride('_method'));
 
 // Routes
 app.get('/', (req, res)=>{
-    res.send('Hello World!');
+    res.render('index.ejs');
 });
 
 // Listen
