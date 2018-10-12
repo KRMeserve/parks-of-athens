@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Add a New Park</title>
+    </head>
+    <body>
+        <h1>Add a New Park to be Reviewed!</h1>
+        <form action="/parks/new" method="POST">
+            Name: <input type="text" name="name"><br>
+            Link to Picture of Park: <input type="text" name="img"><br>
+            Description: <input type="text" name="description"><br>
+            Rating (1 - 5): <input type="number" name="rating"><br>
+            <input type="submit" value="Add Park">
+        </form>
+    </body>
+</html>

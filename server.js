@@ -2,6 +2,7 @@
 const express = require('express');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
+const Park = require('./models/parks.js');
 const app = express();
 const db = mongoose.connection;
 
@@ -33,7 +34,21 @@ app.use(methodOverride('_method'));
 
 // Routes
 app.get('/', (req, res)=>{
-    res.render('index.ejs');
+    Park.find({}, (error, allParks)=>{
+        res.render('index.ejs', {
+            parks: allParks
+        });
+    });
+});
+
+app.get('/parks/new', (req, res)=>{
+    res.render('parks/new.ejs');
+});
+
+app.post('/parks/new', (req, res)=>{
+    Park.create(req.body, (error, newPark)=>{
+        res.redirect('/');
+    });
 });
 
 // Listen
