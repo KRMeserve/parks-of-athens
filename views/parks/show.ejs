@@ -3,14 +3,21 @@
     <head>
         <meta charset="utf-8">
         <title><%=park.name%></title>
+        <!-- <link rel="stylesheet" href="style.css"> ISNT WORKING FOR SOME REASON -->
     </head>
     <body>
         <header>
-
+            <% include ../../partials/header.ejs %>
         </header>
         <h1><%=park.name%></h1>
         <p><%=park.rating%></p>
         <p><%=park.description%></p>
         <img src="<%=park.img%>" alt="Memorial Park picture">
+        <div class="googleMaps">
+            <p>This will show the location of the park on google maps, hopefully!</p>
+        </div>
+        <footer>
+            <% include ../../partials/footer.ejs %>
+        </footer>
     </body>
 </html>

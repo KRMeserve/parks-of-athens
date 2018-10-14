@@ -1,0 +1,13 @@
+body {
+    background-color: lightgreen;
+}
+header, .park-container {
+    background-color: rgba(255,255,255,0.7);
+}
+nav, footer {
+    background-color: lightblue;
+}
+h3 {
+    font-size: 1.6em;
+    text-decoration: underline;
+}

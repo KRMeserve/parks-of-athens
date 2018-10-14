@@ -3,20 +3,11 @@
     <head>
         <meta charset="utf-8">
         <title>Parks of Athens</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
-            <h1>Parks of Athens</h1>
-            <div class="login-buttons">
-                <a href="#">Log In</a>
-                <a href="#">Create New Account</a>
-            </div>
-            <nav>
-                <a href="/">Home</a>
-                <a href="#">Parks</a>
-                <a href="#">Events</a>
-                <a href="#">Contact Us</a>
-            </nav>
+            <% include ../partials/header.ejs %>
         </header>
         <main>
             <div class="article">
@@ -33,11 +24,7 @@
             <% } %>
         </main>
         <footer>
-            <div class="footer-container">
-                <a href="#">Programmed by Kyle M.</a>
-                <a href="#">October, 2018</a>
-                <a href="/parks/new">Add a New Park</a>
-            </div>
+            <% include ../partials/footer.ejs %>
         </footer>
     </body>
 </html>
