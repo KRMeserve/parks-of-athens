@@ -25,17 +25,12 @@
             </div>
             <% for (let i = 0; i < parks.length; i++) { %>
                 <div class="park-container">
-                    <h3><%=parks[i].name%></h3>
-                    <a href="<%=parks[i].id%>">Park Image will go here!</a>
+                    <h3><a href="/parks/<%=parks[i].id%>"><%=parks[i].name%></a></h3>
+                    <img src="<%=parks[i].img%>" alt="<%=parks[i].name%> picture">
                     <p><%=parks[i].rating%></p>
                     <p><%=parks[i].description%></p>
                 </div>
             <% } %>
-            <!-- <div class="park-container">
-                <a href="#">Park Image will go here!</a>
-                <p>Park Rating will go here!</p>
-                <p>Beginning of (or first sentence of park description) will go here</p>
-            </div> -->
         </main>
         <footer>
             <div class="footer-container">

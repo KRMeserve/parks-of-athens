@@ -51,6 +51,15 @@ app.post('/parks/new', (req, res)=>{
     });
 });
 
+app.get('/parks/:id', (req, res)=>{
+    Park.findById(req.params.id, (error, park)=>{
+        console.log(park);
+        res.render('parks/show.ejs', {
+            park: park
+        });
+    });
+});
+
 // Listen
 app.listen(PORT, ()=>{
     console.log('listening on port ', PORT);
