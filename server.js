@@ -47,7 +47,8 @@ app.use(session({
 app.get('/', (req, res)=>{
     Park.find({}, (error, allParks)=>{
         res.render('index.ejs', {
-            parks: allParks
+            parks: allParks,
+            currentUser: req.session.currentUser
         });
     });
 });
@@ -65,7 +66,8 @@ app.post('/parks/new', (req, res)=>{
 app.get('/parks/:id', (req, res)=>{
     Park.findById(req.params.id, (error, park)=>{
         res.render('parks/show.ejs', {
-            park: park
+            park: park,
+            currentUser: req.session.currentUser
         });
     });
 });
@@ -89,6 +91,12 @@ app.get('/users', (req, res)=>{
 
 app.get('/users/new', (req, res)=>{
     res.render('users/new.ejs');
+});
+
+app.delete('/users/delete', (req,res)=>{
+    req.session.destroy(()=>{
+        res.redirect('/');
+    });
 });
 
 app.post('/users/new', (req, res)=>{

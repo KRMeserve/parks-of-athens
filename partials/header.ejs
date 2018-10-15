@@ -1,7 +1,14 @@
 <h1>Parks of Athens</h1>
 <div class="login-buttons">
-    <a href="/users">Log In</a>
-    <a href="/users/new">Create New Account</a>
+    <% if (currentUser) { %>
+        Welcome, <%=currentUser.username%>.
+        <form action="/users/delete?_method=DELETE" method="POST">
+            <input type="submit" value="Log Out">
+        </form>
+    <% } else { %>
+        <a href="/users">Log In</a>
+        <a href="/users/new">Create New Account</a>
+    <% } %>
 </div>
 <nav>
     <a href="/">Home</a>
