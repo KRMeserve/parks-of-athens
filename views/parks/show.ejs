@@ -17,6 +17,20 @@
         <div class="googleMaps">
             <p>This will show the location of the park on google maps, hopefully!</p>
         </div>
+        <div class="reviews">
+            <% for (let i = 0; i < park.reviews.length; i++) { %>
+                <div class="review">
+                    <p><%=park.reviews[i]%></p>
+                </div>
+            <% } %>
+            <% if (currentUser) { %>
+                <form action="/parks/review" method="POST">
+                    Write a New Review: <input type="text" name="reviews" placeholder="Write a Review!"><br>
+                    Rating: <input type="number" name="rating" placeholder="0-5"><br>
+                    <input type="submit" value="Submit Review">
+                </form>
+            <% } %>
+        </div>
         <footer>
             <% include ../../partials/footer.ejs %>
         </footer>
