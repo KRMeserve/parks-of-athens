@@ -56,6 +56,37 @@ app.get('/parks/new', (req, res)=>{
     res.render('parks/new.ejs');
 });
 
+app.post('/parks/new', (req, res)=>{
+    Park.create(req.body, (error, newPark)=>{
+        res.redirect('/');
+    });
+});
+
+app.get('/parks/:id', (req, res)=>{
+    Park.findById(req.params.id, (error, park)=>{
+        res.render('parks/show.ejs', {
+            park: park
+        });
+    });
+});
+
+app.post('/users', (req, res)=>{
+    User.findOne({username: req.body.username}, (error, foundUsername)=>{
+        if (foundUsername === null) {
+            res.send('<a href="/">Username or Password was incorrect.</a>');
+        } else if (req.body.password == foundUsername.password) {
+            req.session.currentUser = foundUsername;
+            res.redirect('/');
+        } else {
+            res.send('<a href="/">Username or Password was incorrect.</a>');
+        }
+    });
+});
+
+app.get('/users', (req, res)=>{
+    res.render('users/login.ejs');
+});
+
 app.get('/users/new', (req, res)=>{
     res.render('users/new.ejs');
 });
@@ -66,21 +97,7 @@ app.post('/users/new', (req, res)=>{
     });
 });
 
-app.post('/parks/new', (req, res)=>{
-    Park.create(req.body, (error, newPark)=>{
-        res.redirect('/');
-    });
-});
 
-app.get('/parks/:id', (req, res)=>{
-    console.log(req.params);
-    Park.findById(req.params.id, (error, park)=>{
-        console.log(park, 'park');
-        res.render('parks/show.ejs', {
-            park: park
-        });
-    });
-});
 
 // Listen
 app.listen(PORT, ()=>{

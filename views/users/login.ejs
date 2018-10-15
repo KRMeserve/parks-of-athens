@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Log In</title>
+        <link rel="stylesheet" type="text/css" href="../../style.css">
+    </head>
+    <body>
+        <header>
+            <% include ../../partials/header.ejs %>
+        </header>
+        <h1>Log In</h1>
+        <form action="/users" method="POST">
+            Username: <input type="text" name="username"><br>
+            Password: <input type="password" name="password"><br>
+            <input type="submit" value="Log In">
+        </form>
+        <footer>
+            <% include ../../partials/footer.ejs %>
+        </footer>
+    </body>
+</html>
