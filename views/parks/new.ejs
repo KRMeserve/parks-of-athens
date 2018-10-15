@@ -5,6 +5,9 @@
         <title>Add a New Park</title>
     </head>
     <body>
+        <header>
+            <% include ../../partials/header.ejs %>
+        </header>
         <h1>Add a New Park to be Reviewed!</h1>
         <form action="/parks/new" method="POST">
             Name: <input type="text" name="name"><br>
@@ -13,5 +16,8 @@
             Rating (1 - 5): <input type="number" name="rating"><br>
             <input type="submit" value="Add Park">
         </form>
+        <footer>
+            <% include ../../partials/footer.ejs %>
+        </footer>
     </body>
 </html>

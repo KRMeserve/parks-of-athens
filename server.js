@@ -3,7 +3,10 @@ const express = require('express');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const Park = require('./models/parks.js');
+const User = require('./models/users.js');
 const app = express();
+const session = require('express-session');
+require('dotenv').config();
 const db = mongoose.connection;
 
 // port
@@ -12,6 +15,9 @@ const PORT = process.env.PORT || 3000;
 
 // Database
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/' + 'parks-of-athens';
+
+// SECRET
+const SECRET = process.env.SECRET;
 
 // Connect to Mongo
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true});
@@ -31,6 +37,11 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(session({
+    secret: SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
 
 // Routes
 app.get('/', (req, res)=>{
@@ -45,6 +56,16 @@ app.get('/parks/new', (req, res)=>{
     res.render('parks/new.ejs');
 });
 
+app.get('/users/new', (req, res)=>{
+    res.render('users/new.ejs');
+});
+
+app.post('/users/new', (req, res)=>{
+    User.create(req.body, (error, newUser)=>{
+        res.redirect('/');
+    });
+});
+
 app.post('/parks/new', (req, res)=>{
     Park.create(req.body, (error, newPark)=>{
         res.redirect('/');
@@ -52,7 +73,9 @@ app.post('/parks/new', (req, res)=>{
 });
 
 app.get('/parks/:id', (req, res)=>{
+    console.log(req.params);
     Park.findById(req.params.id, (error, park)=>{
+        console.log(park, 'park');
         res.render('parks/show.ejs', {
             park: park
         });
