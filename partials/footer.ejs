@@ -1,5 +1,9 @@
 <div class="footer-container">
     <a href="#">Programmed by Kyle M.</a>
     <a href="#">October, 2018</a>
-    <a href="/parks/new">Add a New Park</a>
+    <% if (currentUser == undefined) { %>
+        Log In to Add New Park.
+    <% } else if (currentUser) { %>
+        <a href="/parks/new">Add a New Park</a>
+    <% } %>
 </div>

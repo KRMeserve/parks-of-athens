@@ -54,7 +54,9 @@ app.get('/', (req, res)=>{
 });
 
 app.get('/parks/new', (req, res)=>{
-    res.render('parks/new.ejs');
+    res.render('parks/new.ejs', {
+        currentUser: req.session.currentUser
+    });
 });
 
 app.post('/parks/new', (req, res)=>{
@@ -86,11 +88,15 @@ app.post('/users', (req, res)=>{
 });
 
 app.get('/users', (req, res)=>{
-    res.render('users/login.ejs');
+    res.render('users/login.ejs', {
+        currentUser: req.session.currentUser
+    });
 });
 
 app.get('/users/new', (req, res)=>{
-    res.render('users/new.ejs');
+    res.render('users/new.ejs', {
+        currentUser: req.session.currentUser
+    });
 });
 
 app.delete('/users/delete', (req,res)=>{
