@@ -1,4 +1,5 @@
 // dependencies
+const bcrypt = require('bcrypt');
 const express = require('express');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
@@ -74,11 +75,35 @@ app.get('/parks/:id', (req, res)=>{
     });
 });
 
+app.delete('/parks/:id/:i', (req,res)=>{
+    Park.findById(req.params.id, (error, park)=>{
+        let reviewsArray = park.reviews;
+        reviewsArray.splice(req.params.i, 1);
+        park.reviews = reviewsArray;
+        Park.findByIdAndUpdate(req.params.id, {reviews: reviewsArray}, {new: true}, (error, reviews)=>{
+            res.redirect('/');
+        });
+    });
+});
+
+app.post('/parks/:id/review', (req, res)=>{
+    req.body.author = req.session.currentUser.username;
+    Park.findById(req.params.id, (error, park)=>{
+        let reviewsArray = park.reviews;
+        reviewsArray.push(req.body);
+        park.reviews = reviewsArray;
+        Park.findByIdAndUpdate(req.params.id, {reviews: reviewsArray}, {new: true}, (error, reviews)=>{
+            res.render('parks/show.ejs', {
+                park: park,
+                currentUser: req.session.currentUser
+            });
+        })
+    });
+});
+
 app.post('/users', (req, res)=>{
     User.findOne({username: req.body.username}, (error, foundUsername)=>{
-        if (foundUsername === null) {
-            res.send('<a href="/">Username or Password was incorrect.</a>');
-        } else if (req.body.password == foundUsername.password) {
+        if (bcrypt.compareSync(req.body.password, foundUsername.password)) {
             req.session.currentUser = foundUsername;
             res.redirect('/');
         } else {
@@ -106,6 +131,7 @@ app.delete('/users/delete', (req,res)=>{
 });
 
 app.post('/users/new', (req, res)=>{
+    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
     User.create(req.body, (error, newUser)=>{
         res.redirect('/');
     });

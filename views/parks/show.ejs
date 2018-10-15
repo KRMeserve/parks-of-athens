@@ -20,12 +20,16 @@
         <div class="reviews">
             <% for (let i = 0; i < park.reviews.length; i++) { %>
                 <div class="review">
-                    <p><%=park.reviews[i]%></p>
+                    <p><%=park.reviews[i].author%> -- Rating: <%=park.reviews[i].rating%></p>
+                    <p><%=park.reviews[i].review%></p>
+                    <form action="/parks/<%=park.id%>/<%=i%>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete Your Review">
+                    </form>
                 </div>
             <% } %>
             <% if (currentUser) { %>
-                <form action="/parks/review" method="POST">
-                    Write a New Review: <input type="text" name="reviews" placeholder="Write a Review!"><br>
+                <form action="/parks/<%= park.id %>/review" method="POST">
+                    Write a New Review: <input type="text" name="review" placeholder="Write a Review!"><br>
                     Rating: <input type="number" name="rating" placeholder="0-5"><br>
                     <input type="submit" value="Submit Review">
                 </form>
