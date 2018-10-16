@@ -60,6 +60,30 @@ app.get('/parks/new', (req, res)=>{
     });
 });
 
+app.get('/parks/seed', (req, res)=>{
+    Park.create([
+        {
+            name: 'Memorial Park',
+            img: 'https://i.pinimg.com/originals/98/6a/c4/986ac4bdbd5509a66ada14d896ccee13.jpg',
+            description: 'Memorial Park is one of the most popular locations for families to visit. Nestled in the Five Points neighborhood, the park boasts a swimming pool, the Birchmore Trail, a lake, and Bear Hollow Zoo. Additionally, the 72-acre park is the home of Athens Creative Theatre.',
+            rating: 4,
+            review: []
+        }, {
+            name: 'UGA State Botanical Gardens',
+            img: 'http://botgarden.uga.edu/wp-content/uploads/2016/12/slideshowHeritage2.jpg',
+            description: 'The State Botanical Garden of Georgia at the University of Georgia aims to acquire and disseminate botanical knowledge and to foster appreciation, understanding and stewardship of plants and nature through collections and displays, horticultural gardens, research, educational programs, exhibitions and special events. The garden is a 313-acre preserve set aside by UGA in 1968 for the study and enjoyment of plants and nature. Located three miles south of campus, it is a living laboratory serving educational, research, recreational and public service roles for the university and the citizens of Georgia. It contains a number of specialized theme gardens and collections, more than five miles of nature trails, and four major facilities including a tropical conservatory.',
+            rating: 5,
+            review: []
+        }, {
+            name: 'Sandy Creek Park',
+            img: 'https://photos.smugmug.com/Athens-GA/Sandy-Creek-Park/i-6Mz5x8p/1/8a33ae17/L/122714SCPLake1-L.jpg',
+            description: 'Enjoy outdoor recreation in a beautiful setting. This 782-acre park surrounds 260-acre Lake Chapman and offers a variety of activities throughout the year. Athens-Clarke County takes pride in providing the community with facilities like those of many state parks. Sandy Creek Park is the largest single location within the Athens-Clarke County Leisure Services System encompassing more than a third of all of their property and with more amenity types than any other single park in the system.',
+            rating: 4,
+            review: []
+        }
+    ])
+});
+
 app.post('/parks/new', (req, res)=>{
     Park.create(req.body, (error, newPark)=>{
         res.redirect('/');
