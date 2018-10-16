@@ -101,6 +101,30 @@ app.post('/parks/:id/review', (req, res)=>{
     });
 });
 
+app.put('/parks/:id/:i', (req, res)=>{
+    Park.findById(req.params.id, (error, park)=>{
+        let parkReview = park.reviews;
+        const newReview = req.body.review;
+        const newRating = req.body.rating;
+        parkReview[req.params.i].review = newReview;
+        parkReview[req.params.i].rating = newRating;
+        console.log(park);
+        Park.findByIdAndUpdate(req.params.id, {reviews: parkReview}, {new:true}, (error, reviews)=>{
+            res.redirect('/');
+        });
+    });
+});
+
+app.get('/parks/:id/:i/edit', (req, res)=>{
+    Park.findById(req.params.id, (error, park)=>{
+        res.render('parks/edit.ejs', {
+            currentUser: req.session.currentUser,
+            park: park,
+            i: req.params.i
+        });
+    });
+});
+
 app.post('/users', (req, res)=>{
     User.findOne({username: req.body.username}, (error, foundUsername)=>{
         if (bcrypt.compareSync(req.body.password, foundUsername.password)) {

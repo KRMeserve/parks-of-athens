@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Edit Review</title>
+        <link rel="stylesheet" type="text/css" href="../../style.css">
+    </head>
+    <body>
+        <h1>Edit Your Review</h1>
+        <form action="/parks/<%=park.id%>/<%=i%>?_method=PUT" method="POST">
+            Review: <input type="text" name="review" value="<%=park.reviews[i].review%>"> <br>
+            Rating (0-5): <input type="number" name="rating" value="<%=park.reviews[i].rating%>"><br>
+            <input type="submit" value="Save Edits">
+        </form>
+    </body>
+</html>
