@@ -1,36 +1,61 @@
 @import url('https://fonts.googleapis.com/css?family=Lora:400,700');
 
 body {
-    background-color: lightgreen;
+    background-color: #b7f29f;
     font-family: 'Lora', serif;
     margin: 0;
 }
+a {
+    text-decoration: none;
+}
 header, .park-container {
     background-color: rgba(255,255,255,0.7);
-    padding: 15px;
+    padding-top: 15px;
 }
 header h1{
-    margin-top: 0;
+    margin: 0 auto;
+    font-size: 3.6em;
+    padding-top: 30px;
 }
-header>div>form>input {
+header>div>div>form>input {
     padding: 5px 15px;
     background-color: pink;
     transition: .4s;
 }
-header>div>form>input:hover {
+header>div>div>form>input:hover {
     padding: 5px 15px;
     background-color: #d17bb4;
     cursor: pointer;
+}
+.full-nav {
+    background-color: #9ea09d;
+    width: 100%;
+}
+.h1 {
+    display: flex;
+    flex-direction: column;
+}
+.h1-and-video {
+    display: flex;
+    justify-content: space-around;
+    max-height: 350px;
+    padding-bottom: 15px;
+}
+.h1-and-video video {
+    width: 60%;
 }
 .login-buttons {
     display: flex;
     justify-content: space-between;
 }
+.login-buttons a {
+    color: white;
+}
 .login-buttons p {
     margin: 0;
 }
 .username {
-    color: #d17bb4;
+    color: white;
 }
 nav {
     display: flex;
@@ -43,11 +68,22 @@ nav a {
     transition: .4s;
     color: #d17bb4;
 }
+a {
+    color: #d17bb4
+}
 nav a:hover {
     background-color: pink;
 }
 footer {
     background-color: lightblue;
+    padding: 15px;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-container p {
+    margin: 0;
 }
 h3 {
     font-size: 1.6em;
@@ -76,6 +112,14 @@ h3 {
 @media only screen and (max-width: 872px) {
     .park-container {
         max-width: 80%;
+    }
+    .park-container img {
+        max-width: 95%;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    .park-container {
+        max-width: 30%;
     }
     .park-container img {
         max-width: 95%;
