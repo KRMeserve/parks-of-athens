@@ -6,6 +6,35 @@
         <link rel="stylesheet" type="text/css" href="../../style.css">
     </head>
     <body>
+        <header>
+            <div class="h1-and-video">
+                <div class="h1">
+                    <h1>Parks</h1>
+                    <h1>of</h1>
+                    <h1>Athens</h1>
+                </div>
+                <video src="../IMG_4259.mov" autoplay loop poster=""></video>
+            </div>
+            <div class="full-nav">
+                <div class="login-buttons">
+                    <% if (currentUser) { %>
+                        <p>Welcome, <span class="username"><%=currentUser.username%></span>.</p>
+                        <form action="/users/delete?_method=DELETE" method="POST">
+                            <input type="submit" value="Log Out">
+                        </form>
+                    <% } else { %>
+                        <a href="/users">Log In</a>
+                        <a href="/users/new">Create New Account</a>
+                    <% } %>
+                </div>
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="#">Parks</a>
+                    <a href="#">Events</a>
+                    <a href="#">Contact Us</a>
+                </nav>
+            </div>
+        </header>
         <h1>Create Account</h1>
         <form action="/users/new" method="POST">
             Username: <input type="text" name="username"><br>
