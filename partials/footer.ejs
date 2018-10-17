@@ -1,9 +1,7 @@
 <div class="footer-container">
     <a href="http://www.kylemeserve.com/">Programmed by Kyle M.</a>
     <p>October, 2018</p>
-    <% if (currentUser == undefined) { %>
-        Log In to Add New Park.
-    <% } else if (currentUser) { %>
+    <% if (currentUser == 'KyleRM') { %>
         <a href="/parks/new">Add a New Park</a>
     <% } %>
 </div>

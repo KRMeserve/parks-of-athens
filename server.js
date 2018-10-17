@@ -93,6 +93,9 @@ app.post('/parks/new', (req, res)=>{
 
 app.get('/parks/:id', (req, res)=>{
     Park.findById(req.params.id, (error, park)=>{
+        if (req.session.currentUser == undefined) {
+            req.session.currentUser = 'Guest'
+        };
         res.render('parks/show.ejs', {
             park: park,
             currentUser: req.session.currentUser

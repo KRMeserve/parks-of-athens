@@ -69,7 +69,7 @@ nav a {
     color: #d17bb4;
 }
 a {
-    color: #d17bb4
+    color: #d17bb4;
 }
 nav a:hover {
     background-color: pink;
@@ -89,17 +89,23 @@ h3 {
     font-size: 1.6em;
     text-decoration: underline;
 }
-.review {
-    background: pink;
-}
 .article {
-    max-width: 85%;
+    width: 85%;
     margin: 10px auto;
 }
 .all-articles {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+.article-and-pic {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.article-and-pic img {
+    width: 80%;
+    margin: 0 auto;
 }
 .park-container {
     max-width: 43%;
@@ -108,6 +114,51 @@ h3 {
 }
 .park-container img {
     max-width: 80%;
+}
+.review {
+    width: 85%;
+    margin: 10px auto;
+    background: pink;
+    padding: 15px;
+    border: 2px solid white;
+    text-align: center;
+}
+.review > a {
+    color: white;
+}
+.review > form > input {
+    background-color: lightblue;
+    padding: 5px 25px;
+    margin-top: 10px;
+    transition: .4s;
+    color: #d17bb4;
+}
+.review > form > input:hover {
+    cursor: pointer;
+    background-color: #d17bb4;
+    color: white;
+}
+fieldset {
+    padding: 20px;
+    margin: 15px auto;
+    width: 40%;
+    text-align: center;
+}
+fieldset>input {
+    background-color: lightblue;
+    padding: 5px 25px;
+    margin-top: 10px;
+    transition: .4s;
+    color: #d17bb4;
+}
+fieldset>input:hover {
+    cursor: pointer;
+    background-color: #d17bb4;
+    color: white;
+}
+label {
+    color: #d17bb4;
+    display: block;
 }
 @media only screen and (max-width: 872px) {
     .park-container {
@@ -123,5 +174,13 @@ h3 {
     }
     .park-container img {
         max-width: 95%;
+    }
+    .article-and-pic {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .article-and-pic img {
+        width: 60%;
     }
 }
