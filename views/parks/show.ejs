@@ -12,11 +12,7 @@
         <h1><%=park.name%></h1>
         <p><%=park.rating%></p>
         <p><%=park.description%></p>
-        <img src="https://www.sandiego.gov/sites/default/files/legacy/park-and-recreation/graphics/missionhills.jpg" alt="Memorial Park picture">
-        <p><%=park.img%></p>
-        <div class="googleMaps">
-            <p>This will show the location of the park on google maps, hopefully!</p>
-        </div>
+        <img src="<%=park.img%>" alt="Memorial Park picture">
         <div class="reviews">
             <% for (let i = 0; i < park.reviews.length; i++) { %>
                 <div class="review">

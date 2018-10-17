@@ -1,7 +1,7 @@
 <h1>Parks of Athens</h1>
 <div class="login-buttons">
     <% if (currentUser) { %>
-        Welcome, <%=currentUser.username%>.
+        <p>Welcome, <span class="username"><%=currentUser.username%></span>.</p>
         <form action="/users/delete?_method=DELETE" method="POST">
             <input type="submit" value="Log Out">
         </form>

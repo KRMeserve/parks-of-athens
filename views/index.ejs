@@ -14,14 +14,16 @@
                 <h3>Welcome to Parks of Athens</h3>
                 <p>This site allows locals and tourists a chance to rate and leave reviews on the various public parks around Athens, GA. If a park is not on this list, feel free to add it to the site, as long as it is within 1.5 hours of Athens, GA.</p>
             </div>
-            <% for (let i = 0; i < parks.length; i++) { %>
-                <div class="park-container">
-                    <h3><a href="/parks/<%=parks[i].id%>"><%=parks[i].name%></a></h3>
-                    <img src="<%=parks[i].img%>" alt="<%=parks[i].name%> picture">
-                    <p><%=parks[i].rating%></p>
-                    <p><%=parks[i].description%></p>
-                </div>
-            <% } %>
+            <div class="all-articles">
+                <% for (let i = 0; i < parks.length; i++) { %>
+                    <div class="park-container">
+                        <img src="<%=parks[i].img%>" alt="<%=parks[i].name%> picture">
+                        <h3><a href="/parks/<%=parks[i].id%>"><%=parks[i].name%></a></h3>
+                        <p>Rating: <%=parks[i].rating%></p>
+                        <!-- <p><%=parks[i].description%></p> -->
+                    </div>
+                <% } %>
+            </div>
         </main>
         <footer>
             <% include ../partials/footer.ejs %>

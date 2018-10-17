@@ -1,10 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700');
+
 body {
     background-color: lightgreen;
+    font-family: 'Lora', serif;
+    margin: 0;
 }
 header, .park-container {
     background-color: rgba(255,255,255,0.7);
+    padding: 15px;
 }
-nav, footer {
+header h1{
+    margin-top: 0;
+}
+header>div>form>input {
+    padding: 5px 15px;
+    background-color: pink;
+    transition: .4s;
+}
+header>div>form>input:hover {
+    padding: 5px 15px;
+    background-color: #d17bb4;
+    cursor: pointer;
+}
+.login-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.login-buttons p {
+    margin: 0;
+}
+.username {
+    color: #d17bb4;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+nav a {
+    background-color: lightblue;
+    padding: 5px 25px;
+    margin-top: 10px;
+    transition: .4s;
+    color: #d17bb4;
+}
+nav a:hover {
+    background-color: pink;
+}
+footer {
     background-color: lightblue;
 }
 h3 {
@@ -13,4 +55,29 @@ h3 {
 }
 .review {
     background: pink;
+}
+.article {
+    max-width: 70%;
+    margin: 10px auto;
+}
+.all-articles {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.park-container {
+    max-width: 43%;
+    text-align: center;
+    margin: 15px;
+}
+.park-container img {
+    max-width: 80%;
+}
+@media only screen and (max-width: 872px) {
+    .park-container {
+        max-width: 80%;
+    }
+    .park-container img {
+        max-width: 95%;
+    }
 }
