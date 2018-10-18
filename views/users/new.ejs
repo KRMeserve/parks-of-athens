@@ -34,11 +34,17 @@
                 </nav>
             </div>
         </header>
-        <h1>Create Account</h1>
+        <h1 class="user-rating">Create Account</h1>
         <form action="/users/new" method="POST">
-            Username: <input type="text" name="username"><br>
-            Password: <input type="password" name="password"><br>
-            <input type="submit" value="Create Account">
+            <fieldset>
+                <label>
+                    Username: <input type="text" name="username">
+                </label><br>
+                <label>
+                    Password: <input type="password" name="password">
+                </label><br>
+                <input type="submit" value="Create Account">
+            </fieldset>            
         </form>
         <footer>
             <% include ../../partials/footer.ejs %>

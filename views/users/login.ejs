@@ -34,11 +34,17 @@
                 </nav>
             </div>
         </header>
-        <h1>Log In</h1>
+        <h1 class="user-rating">Log In</h1>
         <form action="/users" method="POST">
-            Username: <input type="text" name="username"><br>
-            Password: <input type="password" name="password"><br>
-            <input type="submit" value="Log In">
+            <fieldset>
+                <label>
+                    Username: <input type="text" name="username">
+                </lable><br>
+                <label>
+                    Password: <input type="password" name="password">
+                </label><br>
+                <input type="submit" value="Log In">
+            </fieldset>
         </form>
         <footer>
             <% include ../../partials/footer.ejs %>

@@ -1,5 +1,6 @@
-# parks-of-athens
-Yelp for the many parks of Athens
+# Parks of Athens
+
+##### Yelp for the many parks of Athens
 ---
 [Parks of Athens](https://parks-of-athens.herokuapp.com/)
 ---

@@ -34,11 +34,20 @@
                 </nav>
             </div>
         </header>
-        <h1>Edit Your Review</h1>
+        <h1 class="user-rating">Edit Your Review</h1>
         <form action="/parks/<%=park.id%>/<%=i%>?_method=PUT" method="POST">
-            Review: <input type="text" name="review" value="<%=park.reviews[i].review%>"> <br>
-            Rating (0-5): <input type="number" name="rating" value="<%=park.reviews[i].rating%>"><br>
-            <input type="submit" value="Save Edits">
+            <fieldset>
+                <label>
+                    Review: <input type="text" name="review" value="<%=park.reviews[i].review%>">
+                </label><br>
+                <label>
+                    Rating (0-5): <input type="number" name="rating" value="<%=park.reviews[i].rating%>">
+                </label><br>
+                <input type="submit" value="Save Edits">
+            </fieldset>
         </form>
     </body>
+    <footer>
+        <% include ../../partials/footer.ejs %>
+    </footer>
 </html>
