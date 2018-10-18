@@ -43,14 +43,16 @@
             <img src="<%=park.img%>" alt="Memorial Park picture">
         </div>
         <% if (park.reviews.length > 0) { %>
-            <p>User Rating:
-                <% let userRating = 0; %>
-                <% for (let i = 0; i < park.reviews.length; i++) { %>
-                    <% userRating += park.reviews[i].rating %>
-                <% } %>
-                <% userRating = userRating/park.reviews.length %>
-                <%=userRating.toFixed(1)%>/5
-            </p>
+            <div class="user-rating">
+                <p>User Rating:
+                    <% let userRating = 0; %>
+                    <% for (let i = 0; i < park.reviews.length; i++) { %>
+                        <% userRating += park.reviews[i].rating %>
+                    <% } %>
+                    <% userRating = userRating/park.reviews.length %>
+                    <%=userRating.toFixed(1)%>/5
+                </p>
+            </div>
         <% } %>
 
         <div class="reviews">
