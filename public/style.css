@@ -170,7 +170,7 @@ label {
     color: #d17bb4;
     display: block;
 }
-.user-rating {
+.user-rating, .events {
     width: 25%;
     margin: 10px auto;
     text-align: center;
@@ -178,6 +178,9 @@ label {
     border-radius: 4px;
     padding: 10px;
     font-size: 1.5em;
+}
+.events {
+    font-size: 2em;
 }
 @media only screen and (max-width: 872px) {
     .park-container {
