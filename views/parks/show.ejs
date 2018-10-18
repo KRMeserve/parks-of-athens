@@ -49,7 +49,7 @@
                     <% userRating += park.reviews[i].rating %>
                 <% } %>
                 <% userRating = userRating/park.reviews.length %>
-                <%=userRating%>/5
+                <%=userRating.toFixed(1)%>/5
             </p>
         <% } %>
 
