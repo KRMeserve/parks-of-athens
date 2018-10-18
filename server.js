@@ -91,14 +91,29 @@ app.post('/parks/new', (req, res)=>{
     });
 });
 
+app.get('/parks/events', (req, res)=>{
+    res.render('parks/events.ejs', {
+        currentUser: req.session.currentUser
+    });
+});
+
+app.get('/parks/contact', (req, res)=>{
+    res.render('parks/contact.ejs', {
+        currentUser: req.session.currentUser
+    });
+});
+
 app.get('/parks/:id', (req, res)=>{
+    let user = '';
     Park.findById(req.params.id, (error, park)=>{
         if (req.session.currentUser == undefined) {
-            req.session.currentUser = 'Guest'
+            user = 'Guest';
+        } else {
+            user = req.session.currentUser;
         };
         res.render('parks/show.ejs', {
             park: park,
-            currentUser: req.session.currentUser
+            currentUser: user
         });
     });
 });
@@ -121,7 +136,7 @@ app.post('/parks/:id/review', (req, res)=>{
         reviewsArray.push(req.body);
         park.reviews = reviewsArray;
         Park.findByIdAndUpdate(req.params.id, {reviews: reviewsArray}, {new: true}, (error, reviews)=>{
-            res.render('parks/show.ejs', {
+            res.redirect('/parks/' + req.params.id, {
                 park: park,
                 currentUser: req.session.currentUser
             });

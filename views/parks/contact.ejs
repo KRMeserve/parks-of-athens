@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Create Account</title>
+        <title>Events</title>
         <link rel="stylesheet" type="text/css" href="../../style.css">
     </head>
     <body>
@@ -17,7 +17,7 @@
             </div>
             <div class="full-nav">
                 <div class="login-buttons">
-                    <% if (currentUser) { %>
+                    <% if (currentUser && currentUser !== 'Guest') { %>
                         <p>Welcome, <span class="username"><%=currentUser.username%></span>.</p>
                         <form action="/users/delete?_method=DELETE" method="POST">
                             <input type="submit" value="Log Out">
@@ -34,14 +34,11 @@
                 </nav>
             </div>
         </header>
-        <h1>Create Account</h1>
-        <form action="/users/new" method="POST">
-            Username: <input type="text" name="username"><br>
-            Password: <input type="password" name="password"><br>
-            <input type="submit" value="Create Account">
-        </form>
-        <footer>
-            <% include ../../partials/footer.ejs %>
-        </footer>
+        <h1>Contact Us</h1>
+        <p>If you would like to contact us for any reason, please feel free to send an email to us by clicking on the email below and we'll get back to you as soon as we can. Thank you for your interest in the Parks of Athens website!</p>
+        <a href="mailto:meserve.kyle@gmail.com">Send us an Email</a><br><br>
     </body>
+    <footer>
+        <% include ../../partials/footer.ejs %>
+    </footer>
 </html>
