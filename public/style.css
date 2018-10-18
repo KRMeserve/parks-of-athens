@@ -5,6 +5,11 @@ body {
     font-family: 'Lora', serif;
     margin: 0;
 }
+body > p {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+}
 a {
     text-decoration: none;
 }
@@ -179,6 +184,7 @@ label {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        padding: 25px;
     }
     .article-and-pic img {
         width: 60%;

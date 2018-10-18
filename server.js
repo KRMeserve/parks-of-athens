@@ -136,10 +136,7 @@ app.post('/parks/:id/review', (req, res)=>{
         reviewsArray.push(req.body);
         park.reviews = reviewsArray;
         Park.findByIdAndUpdate(req.params.id, {reviews: reviewsArray}, {new: true}, (error, reviews)=>{
-            res.redirect('/parks/' + req.params.id, {
-                park: park,
-                currentUser: req.session.currentUser
-            });
+            res.redirect('/');
         })
     });
 });
