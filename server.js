@@ -148,7 +148,7 @@ app.put('/parks/:id/:i', (req, res)=>{
         const newRating = req.body.rating;
         parkReview[req.params.i].review = newReview;
         parkReview[req.params.i].rating = newRating;
-        console.log(park);
+        //console.log(park);
         Park.findByIdAndUpdate(req.params.id, {reviews: parkReview}, {new:true}, (error, reviews)=>{
             res.redirect('/');
         });
